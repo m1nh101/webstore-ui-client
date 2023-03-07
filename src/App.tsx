@@ -1,9 +1,12 @@
-const App = (): JSX.Element => {
+import { AnimatePresence } from "framer-motion";
+import Main from "./layout/Main";
+
+const Layout = (): JSX.Element => {
   return (
-    <div className="w-screen h-screen flex items-center justify-center text-blue-600">
-      <p>check</p>
-    </div>
+    <AnimatePresence presenceAffectsLayout>
+      <Main />
+    </AnimatePresence>
   );
 };
 
-export default App;
+export default Layout;

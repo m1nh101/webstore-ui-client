@@ -3,7 +3,6 @@ import axios, {
   InternalAxiosRequestConfig,
   AxiosResponse,
 } from "axios";
-import { getToken } from "../cache/cookie";
 const AuthService = axios.create({
   baseURL: `https://localhost:/api`,
   timeout: 5000,
@@ -15,7 +14,6 @@ const AuthService = axios.create({
 
 AuthService.interceptors.request.use(
   (configs: InternalAxiosRequestConfig) => {
-    configs.headers["Authorization"] = `Bearer ${getToken()}`;
     configs.headers["Content-Type"] = "application/json";
     return configs;
   },

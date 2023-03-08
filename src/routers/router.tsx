@@ -1,7 +1,6 @@
 import React from "react";
 import {
   createBrowserRouter,
-  createRoutesFromElements,
   LoaderFunction,
   RouteObject,
 } from "react-router-dom";
@@ -29,6 +28,6 @@ export const mainRouter: Array<RouteObject> = [
   getRouter("*", <>Not Found</>),
 ];
 
-const router = createBrowserRouter(createRoutesFromElements(mainRouter));
+const router = createBrowserRouter(mainRouter);
 
 export default router;

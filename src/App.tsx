@@ -12,7 +12,7 @@ const App = (): JSX.Element => {
   };
   return (
     <UserContext.Provider value={{ state }}>
-      {/* <RouterProvider router={router} /> */}
+      <RouterProvider router={router} />
     </UserContext.Provider>
   );
 };

@@ -2,26 +2,37 @@ import axios, {
   AxiosError,
   InternalAxiosRequestConfig,
   AxiosResponse,
+  AxiosInstance,
+  AxiosRequestConfig,
 } from "axios";
-const AuthService = axios.create({
-  baseURL: `https://localhost:/api`,
-  timeout: 5000,
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "X-Requested-With",
-  },
-});
 
-AuthService.interceptors.request.use(
+interface AxiosConfig extends AxiosRequestConfig {
+  mode?: string;
+}
+
+const Request: AxiosInstance = axios.create({
+  baseURL: `https://localhost:/api`,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  mode: "cors",
+  timeout: 5000,
+} as AxiosConfig);
+
+Request.interceptors.request.use(
   (configs: InternalAxiosRequestConfig) => {
     return configs;
   },
-  (error) => {
-    return Promise.reject(error);
+  (error: AxiosError) => {
+    if (error?.response) {
+      return Promise.reject(error.response.data);
+    }
+    return Promise.reject(error.message);
   }
 );
 
-AuthService.interceptors.response.use(
+Request.interceptors.response.use(
   (response: AxiosResponse) => {
     return response;
   },
@@ -33,4 +44,4 @@ AuthService.interceptors.response.use(
   }
 );
 
-export default AuthService;
+export default Request;

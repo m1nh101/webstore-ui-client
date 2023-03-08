@@ -9,6 +9,7 @@ import {
   MdPersonAdd,
 } from "react-icons/md";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const [isUser, setIsUser] = useState(false);
@@ -30,16 +31,16 @@ const Header: React.FC = () => {
             className="flex items-center gap-8 "
           >
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Home
+              <Link to={"/"}>Home</Link>
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Menu
+              <Link to={"/menu"}>Menu</Link>
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              About
+              <Link to={"/about"}>About</Link>
             </li>
             <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Contact
+              <Link to={"/contact"}>Contact</Link>
             </li>
           </motion.ul>
 

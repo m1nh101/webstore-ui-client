@@ -1,10 +1,11 @@
 import React from "react";
 import {
   createBrowserRouter,
+  createRoutesFromElements,
   LoaderFunction,
   RouteObject,
 } from "react-router-dom";
-import { About, Contact, Home, Menu } from "../pages";
+import { About, Contact, Home, Menu } from "../pages/Index";
 
 const getRouter = (
   path: string,
@@ -20,7 +21,7 @@ const getRouter = (
   } as RouteObject;
 };
 
-const mainRouter: Array<RouteObject> = [
+export const mainRouter: Array<RouteObject> = [
   getRouter("/", <Home />),
   getRouter("/about", <About />),
   getRouter("/menu", <Menu />),
@@ -28,6 +29,6 @@ const mainRouter: Array<RouteObject> = [
   getRouter("*", <>Not Found</>),
 ];
 
-const router = createBrowserRouter(mainRouter);
+const router = createBrowserRouter(createRoutesFromElements(mainRouter));
 
 export default router;

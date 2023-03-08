@@ -1,7 +1,8 @@
 import React from "react";
+import Header from "../components/Header";
 
 const Contact: React.FC = () => {
-  return <div>Contact</div>;
+  return <Header />;
 };
 
 export default Contact;

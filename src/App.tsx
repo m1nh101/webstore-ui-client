@@ -1,12 +1,20 @@
-import { AnimatePresence } from "framer-motion";
-import Main from "./layout/Main";
+import { RouterProvider } from "react-router-dom";
+import UserContext from "./contexts/userContext";
+import router from "./routers/router";
 
-const Layout = (): JSX.Element => {
+const App = (): JSX.Element => {
+  const state = {
+    user: {
+      userName: "tuan",
+      fullName: "tuantm",
+      avatar: "string",
+    },
+  };
   return (
-    <AnimatePresence presenceAffectsLayout>
-      <Main />
-    </AnimatePresence>
+    <UserContext.Provider value={{ state }}>
+      {/* <RouterProvider router={router} /> */}
+    </UserContext.Provider>
   );
 };
 
-export default Layout;
+export default App;

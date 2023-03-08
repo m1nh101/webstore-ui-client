@@ -1,7 +1,8 @@
 import React from "react";
+import Header from "../components/Header";
 
 const Home: React.FC = () => {
-  return <div>home</div>;
+  return <Header />;
 };
 
 export default Home;
